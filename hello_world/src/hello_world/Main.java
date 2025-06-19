@@ -14,6 +14,7 @@ public class Main {
 		System.out.print("Scelta: ");
 
 		int scelta = scanner.nextInt();
+		scanner.close();
 
 		Campanello campanello = null;
 		if (scelta == 1) {
@@ -25,9 +26,9 @@ public class Main {
 		}
 
 		if (campanello != null) {
-			campanello.suona();
+			// Adapter esterno
+			CampanelloMultiplo adattato = new CampanelloAdapter(campanello);
+			adattato.suonaTreVolte();
 		}
-
-		scanner.close();
 	}
 }
